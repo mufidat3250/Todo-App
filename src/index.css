@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: local('Poppins-Medium'),
+      url('./fonts/Poppins-Medium.ttf');
+}
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: local('Poppins-Bold'),
+        url('./fonts/Poppins-Bold.ttf') ;
+}
+@font-face {
+  font-family: 'Poppins-ExtraBold';
+  src: url('Poppins-ExtraBold'),
+        url('./fonts/Poppins-ExtraBold.ttf') ;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body{
+  margin: 0;
+  padding: 0;
+ height: 100vh;
+}
+*{
+  box-sizing: border-box;
+}
+.container{
+  width: 90%;
+  max-width: 50.5rem;
+  margin: 0 auto;
+}
