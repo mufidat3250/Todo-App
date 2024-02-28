@@ -1,0 +1,17 @@
+.app{
+  h1{
+    @apply text-3xl text-[#646681]  m-0 p-0 font-['Poppins-ExtraBold'] text-center my-10;
+  }
+  .main{
+    @apply mx-auto max-w-[50%];
+
+    .form{
+      @apply w-full;
+    
+      .title{
+        @apply  text-[#646681] font-semibold text-left text-[1.6rem];
+      }
+    
+    }
+  }
+}

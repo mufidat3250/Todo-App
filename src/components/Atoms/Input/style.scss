@@ -1,0 +1,7 @@
+.input-wrapper{
+    @apply w-full;
+
+    input{
+        @apply w-full outline-none border-none p-[10px] mt-[4px] focus:border focus:border-gray-400 rounded-sm;
+    }
+}

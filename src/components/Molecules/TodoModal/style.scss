@@ -2,7 +2,7 @@
     @apply fixed top-0 left-0 w-full h-full bg-[rgba(0,_0,_0,0.5)] flex justify-center items-center z-[1000];
 }
 .container{
-    @apply bg-[#ecedf6] max-w-[2.25rem] w-[50%] mx-auto my-0 flex justify-center items-center p-8 rounded-[8px] relative;
+    @apply bg-[#ecedf6] max-w-[2.25rem] w-[50%] mx-auto my-0 flex justify-start items-center p-8 rounded-[8px] relative;
 
     .closeBtn{
         @apply absolute top-[-10px] right-0 transform translate-y-[-100%] text-[#585858] text-[2.5rem] p-[0.5rem] flex z-[-1] bg-white cursor-pointer transition duration-75 ease-in-out rounded-[4px] hover:bg-[#e32525] hover:text-white hover:cursor-pointer;

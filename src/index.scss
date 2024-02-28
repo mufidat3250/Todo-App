@@ -13,7 +13,10 @@
   src: url('Poppins-ExtraBold'),
         url('./fonts/Poppins-ExtraBold.ttf') ;
 }
-
+h1,h2,h3,h4,h5,h6,p{
+  margin: 0;
+  padding: 0;
+}
 
 @tailwind base;
 @tailwind components;
@@ -21,7 +24,9 @@
 body{
   margin: 0;
   padding: 0;
- height: 100vh;
+  height: 100vh;
+  overflow-y: hidden;
+  // background-color: #f8f8ff;
 }
 *{
   box-sizing: border-box;
