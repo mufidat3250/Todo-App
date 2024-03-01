@@ -30,9 +30,11 @@ useEffect(()=> {
   if(type === 'Update'){
     setFormInput({...formInput, title:todo.title, status: todo.status})
   }else {
-    setFormInput({...formInput})
+    setFormInput({...formInput, title: '', status:'Incomplete'})
   }
 }, [todo, type, setOpenModal])
+
+console.log(formInput.status)
 
   const dispatch = useDispatch();
 
@@ -72,10 +74,7 @@ useEffect(()=> {
           }))
         }
       }
-    }  else {
-      toast.error('Title should not be empty')
-     }
-    // setFormInput({...formInput, title:''})
+    }  
     setOpenModal(false);
   };
   return (

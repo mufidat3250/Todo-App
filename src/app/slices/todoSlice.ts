@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice} from "@reduxjs/toolkit";
 
 const getInitialTodo = () => {
   const localTodoList = window.localStorage.getItem("todoList");
@@ -9,8 +9,10 @@ const getInitialTodo = () => {
   return [];
 };
 
-const initialValue = {
+const initialValue:{filterStatus:string, todoList:Array<{title:string, status:string, date:string}>, isChecked:boolean} = {
   todoList: getInitialTodo(),
+  filterStatus : 'All',
+  isChecked: false
 };
 
 export const todoSlice = createSlice({
@@ -35,17 +37,11 @@ export const todoSlice = createSlice({
       const todoList = window.localStorage.getItem("todoList");
       if (todoList) {
         let  todoListArr = JSON.parse(todoList);
-        // todoListArr.forEach((todo, index) => {
-        //     if(todo.id === action.payload.id){
-        //         todo.title = action.payload.title
-        //         todo.status = action.payload.status
-        //     }
-        // });
         const todoItem = todoListArr.find(
-          (todo) => todo.id === action.payload.id
+          (todo:{id:string}) => todo.id === action.payload.id
         );
        
-       todoListArr = todoListArr.map((todo) =>
+       todoListArr = todoListArr.map((todo:{id:string}) =>
           todo.id !== todoItem.id
             ? { ...todo }
             : {
@@ -64,7 +60,7 @@ export const todoSlice = createSlice({
       if (todoList) {
         const todoListArr = JSON.parse(todoList);
         const remainingTodoArr = todoListArr.filter(
-          (todo) => todo.id !== action.payload
+          (todo:{id:string}) => todo.id !== action.payload
         );
         window.localStorage.setItem(
           "todoList",
@@ -73,8 +69,14 @@ export const todoSlice = createSlice({
         state.todoList = remainingTodoArr;
       }
     },
+    updateFilter: (state, action) => {
+        state.filterStatus = action.payload
+    },
+    updateCheckBox: (state, action) => {
+      state.isChecked = action.payload
+    }
   },
 });
 
-export const { addTodo, updateTodo, deleteTodo } = todoSlice.actions;
+export const { addTodo, updateTodo, deleteTodo, updateFilter, updateCheckBox} = todoSlice.actions;
 export default todoSlice.reducer;
