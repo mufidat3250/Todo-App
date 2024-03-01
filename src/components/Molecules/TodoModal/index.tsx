@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import Input from "../../Atoms/Input";
 import Button from "../../Atoms/Buttons";
 import Select from "../../Atoms/Select";
+import { AnimatePresence, motion } from "framer-motion";
 
 const TodoModal = ({
   openModal,
@@ -33,8 +34,6 @@ useEffect(()=> {
     setFormInput({...formInput, title: '', status:'Incomplete'})
   }
 }, [todo, type, setOpenModal])
-
-console.log(formInput.status)
 
   const dispatch = useDispatch();
 
@@ -66,7 +65,6 @@ console.log(formInput.status)
     toast.success("Todo Added successfully");
         }if(type === 'Update'){
         if(todo.title !== formInput.title || todo.status !== formInput.status){
-          console.log('check if i am getting an update', formInput.title, formInput.status)
           dispatch(updateTodo({
             ...todo,
             title:formInput.title,
@@ -77,19 +75,44 @@ console.log(formInput.status)
     }  
     setOpenModal(false);
   };
+
+  const container = {
+    initial: {
+      opacity:0,
+      trasform: 'scale(0.5)',
+      y:0
+    },
+    animate: {
+      opacity: 1,
+      trasform: 'scale(1)',
+      transition:{
+        duration:0.1,
+        type: 'spring',
+        damping: 25,
+        stiffness: 500
+      }
+    },
+    exit: {
+    transform: 'scale(0.9)',
+    opacity: 0,
+    }
+  }
   return (
-    <>
+      <AnimatePresence>
       {openModal && (
-        <div className="wrapper">
-          <div className="container">
-            <div
+        <motion.div className="wrapper" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:0.3}}>
+          <motion.div className="container" variants={container} initial='initial' animate='animate'>
+            <motion.div
               className="closeBtn"
               onClick={() => setOpenModal(false)}
               onKeyDown={() => setOpenModal(false)}
               tabIndex={1}
+              initial={{y: 40, opacity: 0}}
+              animate={{y: -60, opacity: 1}}
+              exit={{y: 40, opacity:0}}
             >
               <MdOutlineClose />
-            </div>
+            </motion.div>
             <div className="w-full">
               <form className="form" onSubmit={handleSubmit}>
                 <h4 className="title">{type === 'Add'? 'Add' : 'Update'} Task</h4>
@@ -121,11 +144,12 @@ console.log(formInput.status)
                 </div>
               </form>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
-    </>
+      </AnimatePresence>
   );
 };
 
 export default TodoModal;
+

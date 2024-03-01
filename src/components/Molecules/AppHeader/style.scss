@@ -1,0 +1,11 @@
+.status{
+    @apply outline-none w-full h-full bg-gray-200 px-3 cursor-pointer rounded-sm;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('/public/arrowDown.svg');
+    background-repeat: no-repeat;
+    background-position-x:right;
+    background-position-y:center ;
+    padding-right: 1.5rem;
+}

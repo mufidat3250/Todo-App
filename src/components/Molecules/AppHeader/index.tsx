@@ -3,6 +3,7 @@ import Button from "../../Atoms/Buttons";
 import TodoModal from "../TodoModal";
 import { useDispatch, useSelector } from "react-redux";
 import { updateFilter } from "../../../app/slices/todoSlice";
+import './style.scss'
 
 const AppHeader = () => {
   const [openModal, setOpenModal] = useState(false)
@@ -20,7 +21,7 @@ const AppHeader = () => {
         <Button title=" Add Task" otherClass={" bg-primary"} />
       </div>
        <div className="w-[8rem]">
-          <select value={filterStatus} onChange={handleChange} className="outline-none w-full h-full bg-gray-200 px-3 cursor-pointer rounded-sm">
+          <select value={filterStatus} onChange={handleChange} className="status">
             <option value="All">All</option>
             <option value="Completed">Completed</option>
             <option value="Incomplete">Incomplete</option>
