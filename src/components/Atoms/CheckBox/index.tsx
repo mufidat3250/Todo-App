@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion} from "framer-motion";
 import { SVGProps } from "react";
 
 type checkIcon = {
@@ -24,8 +24,7 @@ const CheckButton = (props:checkIcon) => {
       },
       unchecked: { background: "#dedfe1", transition: { duration: 0.1 } },
     };
-    const pathLength = useMotionValue(0);
-    const opacity = useTransform(pathLength, [0.05, 0.15], [0, 1]);
+   
 
   return (
     <>
@@ -45,9 +44,8 @@ const CheckButton = (props:checkIcon) => {
           animate={props.checked ? 'checked' : 'unchecked'}
           variants={checkVariants}
         >
-          <path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z" variants={checkVariants}
-          animate={props.checked ? "checked" : "unchecked"}
-          style={{ pathLength, opacity }}></path>
+          <path d="M9.9997 15.1709L19.1921 5.97852L20.6063 7.39273L9.9997 17.9993L3.63574 11.6354L5.04996 10.2212L9.9997 15.1709Z"
+          ></path>
         </motion.svg>
       </motion.div>
     </>

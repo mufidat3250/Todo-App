@@ -4,11 +4,18 @@ import { useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 
 const AppContent = () => {
-  const alltodos = useSelector((state) => state.todo.todoList);
+  const alltodos = useSelector((state:{todo:{todoList:Array<{title:string, status:string, id:string, time:string}>}}) => state.todo.todoList);
   const todos = [...alltodos];
-  const filtedStatus = useSelector((state) => state.todo.filterStatus);
-  const sortedTodo = todos.sort((a, b) => new Date(a.time) - new Date(b.time));
+  const filtedStatus = useSelector((state:{todo:{filterStatus:string}}) => state.todo.filterStatus);
+  const sortedTodo = todos.sort((a, b) => {
+    console.log(typeof new Date(a.time).toString())
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
+      return new Date(a.time).toString() - new Date(b.time).toString()
 
+  });
+
+  
   const filtedTodo = sortedTodo.filter((todo) => {
     if (filtedStatus === "All") return todo;
     if (filtedStatus === 'Completed') return todo.status === 'Completed'

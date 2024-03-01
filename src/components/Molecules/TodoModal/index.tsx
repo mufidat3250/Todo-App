@@ -33,6 +33,7 @@ useEffect(()=> {
   }else {
     setFormInput({...formInput, title: '', status:'Incomplete'})
   }
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [todo, type, setOpenModal])
 
   const dispatch = useDispatch();
@@ -70,10 +71,15 @@ useEffect(()=> {
             title:formInput.title,
             status: formInput.status
           }))
+        setOpenModal(false);
+
+        }else{
+          toast.error('No update made')
+          setOpenModal(true)
         }
       }
     }  
-    setOpenModal(false);
+    // setOpenModal(false);
   };
 
   const container = {

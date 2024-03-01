@@ -26,13 +26,11 @@ body{
   padding: 0;
   height: 100vh;
   overflow-y: hidden;
-  // background-color: #f8f8ff;
+  background-color: #f8f8ff;
 }
 *{
   box-sizing: border-box;
 }
 .container{
-  width: 90%;
-  max-width: 50.5rem;
-  margin: 0 auto;
+  @apply h-full flex flex-col my-0; 
 }

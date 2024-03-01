@@ -9,7 +9,7 @@ const getInitialTodo = () => {
   return [];
 };
 
-const initialValue:{filterStatus:string, todoList:Array<{title:string, status:string, date:string}>, isChecked:boolean} = {
+const initialValue:{filterStatus:string, todoList:Array<{title:string, status:string, time:Date}>, isChecked:boolean} = {
   todoList: getInitialTodo(),
   filterStatus : 'All',
   isChecked: false

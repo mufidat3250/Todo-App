@@ -1,9 +1,9 @@
 .app{
   h1{
-    @apply text-3xl text-[#646681]  m-0 p-0 font-['Poppins-ExtraBold'] text-center my-10;
+    @apply text-3xl text-[#646681]  m-0 p-0 font-['Poppins-ExtraBold'] text-center my-10 mt-36;
   }
   .main{
-    @apply mx-auto max-w-[50%];
+    @apply mx-auto max-w-[90%] lg:max-w-[70%];
 
     .form{
       @apply w-full;

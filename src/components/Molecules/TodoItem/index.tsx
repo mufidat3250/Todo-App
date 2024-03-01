@@ -9,7 +9,9 @@ import { motion } from "framer-motion";
 const TodoItem = ({
     todo,
   }: {
-    todo: { title: string; time: string; id: string };
+    todo: {
+        status: string; title: string; time: string; id: string 
+};
   }) => {
     const { title, time, id } = todo;
     const [checked, setChecked] = useState(false);
@@ -65,13 +67,13 @@ const TodoItem = ({
             </div>
             <div className="lin leading-6">
               <p
-                className={` cursor-pointer ${
+                className={` cursor-pointer text-base ${
                   checked ? "line-through text-gray-500" : ""
                 }`}
               >
                 {title}
               </p>
-              <p>{time}</p>
+              <p className="text-sm m-0 p-0">{time}</p>
             </div>
           </div>
           <div className="icon-container">
