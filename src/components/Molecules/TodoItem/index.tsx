@@ -67,13 +67,13 @@ const TodoItem = ({
             </div>
             <div className="lin leading-6">
               <p
-                className={` cursor-pointer text-base ${
+                className={` cursor-pointer leading-4 text-sm md:text-base ${
                   checked ? "line-through text-gray-500" : ""
                 }`}
               >
                 {title}
               </p>
-              <p className="text-sm m-0 p-0">{time}</p>
+              <p className=" font-bold text-xs md:text-sm m-0 p-0">{time}</p>
             </div>
           </div>
           <div className="icon-container">

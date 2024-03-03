@@ -64,6 +64,7 @@ useEffect(()=> {
           })
         );
     toast.success("Todo Added successfully");
+    setOpenModal(false)
         }if(type === 'Update'){
         if(todo.title !== formInput.title || todo.status !== formInput.status){
           dispatch(updateTodo({
@@ -107,7 +108,7 @@ useEffect(()=> {
       <AnimatePresence>
       {openModal && (
         <motion.div className="wrapper" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:0.3}}>
-          <motion.div className="container w-[50%]" variants={container} initial='initial' animate='animate'>
+          <motion.div className="container  " variants={container} initial='initial' animate='animate'>
             <motion.div
               className="closeBtn"
               onClick={() => setOpenModal(false)}

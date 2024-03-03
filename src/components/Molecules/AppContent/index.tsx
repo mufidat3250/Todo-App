@@ -49,7 +49,7 @@ const AppContent = () => {
       opacity:1,
       scale:1,
       y:0,
-      stagger: 0.6
+      stagger: 0.2
     },
     
   } 
