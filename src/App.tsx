@@ -8,7 +8,7 @@ function App() {
   
 
   return (
-    <>
+    <div>
       <div className="app">
       <h1>TODO LIST</h1>
       <div className="main">
@@ -19,7 +19,7 @@ function App() {
     <Toaster toastOptions={{
       className:'text-2xl'
     }}/>
-    </>
+    </div>
   );
 }
 
