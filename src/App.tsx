@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <div className="app">
-      <h1>TODO LIST</h1>
+      <h1>Activities Listing</h1>
       <div className="main">
         <AppHeader/>
         <AppContent/>
